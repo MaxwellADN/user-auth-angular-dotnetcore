@@ -29,14 +29,14 @@ namespace dotnet_core.Common
             {
                 MailMessage mail = new MailMessage();
                 mail.To.Add(receiverEmail);
-                mail.From = new MailAddress("services@digital-tricks.com", "Dev Studio", Encoding.UTF8);
+                mail.From = new MailAddress("address@email.com", "Dev Studio", Encoding.UTF8);
                 mail.Subject = subject;
                 mail.Body = _body.ToString();
                 mail.IsBodyHtml = true;
                 mail.Priority = MailPriority.High;
                 _client.Host = "smtp.gmail.com";
                 _client.Port = 587;
-                _client.Credentials = new NetworkCredential("services@digital-tricks.com", "Password4digitaltricks15@!");
+                _client.Credentials = new NetworkCredential("address@email.com", "*******************");
                 _client.EnableSsl = true;
                 _client.UseDefaultCredentials = false;
                 await _client.SendMailAsync(mail);
