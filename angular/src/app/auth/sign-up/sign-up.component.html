@@ -1,0 +1,92 @@
+<nb-layout>
+  <nb-layout-column>
+
+      <div class="container">
+
+        <div class="row justify-content-center">
+
+          <div class="col-xl-10 col-lg-10 col-md-9">
+
+            <nb-card class="o-hidden border-0 shadow-lg my-5">
+
+              <nb-card-body class="p-0">
+
+                <div class="row">
+
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 d-none d-lg-block bg-register-image"></div>
+
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="p-5">
+
+                      <div class="text-center">
+                        <h1 class="h4 text-gray-900 mb-4">Create new account!</h1>
+                      </div>
+
+                      <!-- Display error message -->
+                      <nb-alert *ngIf="errorMessage" status="danger">
+                        {{errorMessage}}
+                      </nb-alert>
+
+                      <!-- Build sign up form -->
+                      <form [formGroup]="authForm" (ngSubmit)="signUp(authForm.value)" #formDir="ngForm">
+
+                        <!-- Fullname -->
+                        <div class="form-control-group mt-4">
+                          <label class="label" for="fullname">Fullname </label>
+                          <input nbInput id="fullname" formControlName="fullname" fieldSize="medium" autofocus fullWidth status="primary"
+                           placeholder="Fullname" type="text">
+                          <div class="caption status-danger" *ngIf="authForm.hasError('required', ['fullname']) && formDir.submitted">
+                            Fullname is required
+                          </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-control-group mt-4">
+                          <label class="label" for="email">Email </label>
+                          <input nbInput id="email" formControlName="email" fieldSize="medium" fullWidth status="primary"
+                           placeholder="Email" type="email">
+                          <div class="caption status-danger"  *ngIf="authForm.hasError('required', ['email']) && formDir.submitted">
+                            Email is required
+                          </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-control-group mt-4">
+                          <label class="label" for="password">Password </label>
+                          <input nbInput id="password" formControlName="password" fieldSize="medium" fullWidth status="primary"
+                           placeholder="Password" type="password">
+                           <div *ngIf="passwordError" class="text-danger ">{{passwordError}}</div>
+                          <div class="caption status-danger"  *ngIf="authForm.hasError('required', ['password']) && formDir.submitted">
+                            Password is required
+                          </div>
+                        </div>
+
+                        <div class="form-control-group mt-4">
+                          <nb-checkbox status="primary" formControlName="agreeTerm">Agree to terms and conditions</nb-checkbox>
+                        </div>
+
+                        <div class="form-control-group mt-4">
+                          <button [nbSpinner]="loading" nbButton  status="primary" size="large" fullWidth>Sign up</button>
+                        </div>
+
+                      </form>
+
+                      <div class="another-action mt-5">
+                        <a routerLink="/auth/sign-in">Sign in</a>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </nb-card-body>
+
+            </nb-card>
+          </div>
+
+        </div>
+
+      </div>
+
+  </nb-layout-column>
+</nb-layout>
