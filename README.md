@@ -1,5 +1,6 @@
 A complete user authentication system based on (JWT) Json Web Token using dotnet core 6 and angular 12
 https://www.youtube.com/watch?v=GeqnYryTnl4
+![alt text](https://i9.ytimg.com/vi/GeqnYryTnl4/maxresdefault.jpg?v=620ea262&sqp=COCD5qEG&rs=AOn4CLDrg_J_n8AC7ZcLbOIOAMsVWlRq5Q)
 
 
 # Angular
